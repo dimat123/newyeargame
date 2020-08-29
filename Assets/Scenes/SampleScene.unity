@@ -158,7 +158,7 @@ MonoBehaviour:
   Speed: 10
   XIncrement: 1.5
   MinWidth: -1.5
-  MaxWidth: 1.5
+  MaxWidth: 1.4
 --- !u!50 &479983719
 Rigidbody2D:
   serializedVersion: 4
