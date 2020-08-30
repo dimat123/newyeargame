@@ -1,52 +1,35 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
-public class Player : MonoBehaviour
-{
+public class Player : MonoBehaviour , IBeginDragHandler, IDragHandler { 
+
+    public GameObject pPlayer;
     public int Health;
     public float Speed;
     public float XIncrement;
     public float MinWidth, MaxWidth;
     public Animator _animator;
 
-
-    private Vector2 _targetPos = Vector2.zero;
-    private void Start()
+    public void OnBeginDrag(PointerEventData eventData)
     {
-        _targetPos = transform.position;
-    }
+        if ((Mathf.Abs(eventData.delta.x)) > (Mathf.Abs(eventData.delta.y)))
+        {
+            if(eventData.delta.x > 0)
+            {
 
-    private void Update()
-    {
-        transform.position = Vector2.MoveTowards(transform.position, _targetPos, Speed * Time.deltaTime);
+            }
+        
+        
+        }
 
-        if (Input.GetKeyDown(KeyCode.D) && _targetPos.x < MaxWidth)
-        {
-            _targetPos = new Vector2(_targetPos.x + XIncrement, _targetPos.y);
-            _animator.SetBool("Right", true);
-        }
-        else if (Input.GetKeyDown(KeyCode.A) && _targetPos.x > MinWidth)
-        {
-            _targetPos = new Vector2(_targetPos.x - XIncrement, _targetPos.y);
-            _animator.SetBool("Left", true);
-        }
-        else if (Vector3.Distance(transform.position, _targetPos) <0.1f)
-        {
-            _animator.SetBool("Right", false);
-            _animator.SetBool("Left", false);
-        }
+
 
     }
 
-    public void ApplyDamage(int damage)
+    public void OnDrag(PointerEventData eventData)
     {
-        Health -= damage;
-        if(Health <= 0)
-        Destroy(gameObject);
+        
     }
-
-
-
-
 }
