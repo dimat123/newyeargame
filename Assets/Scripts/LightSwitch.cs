@@ -21,6 +21,7 @@ public class LightSwitch : MonoBehaviour
     void OnMouseDown()
     {
         Debug.Log("Smth touched");
-        Sviet.SetActive(true);
+        Sviet.SetActive(false);
+   
     }
 }

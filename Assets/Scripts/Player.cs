@@ -9,8 +9,8 @@ public class Player : MonoBehaviour
     public float XIncrement;
     public float MinWidth, MaxWidth;
     public Animator _animator;
-
-
+    public Transform Pplayer;
+    public float lefft = -1.53f;
     private Vector2 _targetPos = Vector2.zero;
     private void Start()
     {
@@ -19,17 +19,23 @@ public class Player : MonoBehaviour
 
     private void Update()
     {
+        Debug.Log("1( "+transform.position);
         transform.position = Vector2.MoveTowards(transform.position, _targetPos, Speed * Time.deltaTime);
-
+        Debug.Log("2(" + transform.position);
         if (Input.GetKeyDown(KeyCode.D) && _targetPos.x < MaxWidth)
         {
             _targetPos = new Vector2(_targetPos.x + XIncrement, _targetPos.y);
             _animator.SetBool("Right", true);
+            Debug.Log("Right "+_targetPos); 
+           
         }
         else if (Input.GetKeyDown(KeyCode.A) && _targetPos.x > MinWidth)
         {
             _targetPos = new Vector2(_targetPos.x - XIncrement, _targetPos.y);
-            _animator.SetBool("Left", true);
+           // _animator.SetBool("Left", true);
+           //   Pplayer.position =   new Vector3(transform.position.x  , transform.position.y,transform.position.z);
+            Debug.Log("left "+_targetPos);
+           
         }
         else if (Vector3.Distance(transform.position, _targetPos) <0.1f)
         {
