@@ -399,8 +399,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2084506b310431e4381693acdccf2281, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 1000
-  jumpHeight: 500
+  SidesMove: {fileID: 0}
   maxSwipetime: 0.5
   minSwipeDistance: 50
 --- !u!1 &519420028
