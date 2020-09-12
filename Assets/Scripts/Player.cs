@@ -19,23 +19,28 @@ public class Player : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.D) && _targetPos.x < MaxWidth)
-        {
-            _targetPos = new Vector2(_targetPos.x + XIncrement, _targetPos.y);
-            _animator.SetBool("Right", true);
-        }
-        else if (Input.GetKeyDown(KeyCode.A) && _targetPos.x > MinWidth)
-        {
-            _targetPos = new Vector2(_targetPos.x - XIncrement, _targetPos.y);
-           _animator.SetBool("Left", true);
-        }
-        else if (Vector3.Distance(transform.position, _targetPos) <0.1f)
+      if (Vector3.Distance(transform.position, _targetPos) <0.1f)
         {
             _animator.SetBool("Right", false);
             _animator.SetBool("Left", false);
         }
         transform.position = Vector2.MoveTowards(transform.position, _targetPos, Speed * Time.deltaTime);
 
+    }
+
+    public void moveLeft (){
+         if (_targetPos.x > MinWidth){
+             _targetPos = new Vector2(_targetPos.x - XIncrement, _targetPos.y);
+           _animator.SetBool("Left", true);
+         }
+         
+    }
+    public void moveRight (){
+         if (_targetPos.x < MaxWidth){
+            _targetPos = new Vector2(_targetPos.x + XIncrement, _targetPos.y);
+            _animator.SetBool("Right", true);
+         }
+         
     }
 
     public void ApplyDamage(int damage)

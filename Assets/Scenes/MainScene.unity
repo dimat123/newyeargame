@@ -354,6 +354,7 @@ MonoBehaviour:
   SidesMove: {fileID: 0}
   maxSwipetime: 0.5
   minSwipeDistance: 50
+  player: {fileID: 479983718}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0

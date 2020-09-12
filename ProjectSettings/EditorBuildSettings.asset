@@ -8,4 +8,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/MainScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 0
+    path: Assets/Scenes/SwipeTest.unity
+    guid: c6f7244fa76bc294f8a5f56145f0b8dd
   m_configObjects: {}

@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using System;
+using UnityEngine.Events;
 
 public class Swipes : MonoBehaviour
 {
@@ -17,6 +19,10 @@ public class Swipes : MonoBehaviour
     private Vector2 startSwipePosition;
     private Vector2 endSwipePosition;
     private float swipeLegth;
+    public UnityAction moveRight;
+    public UnityAction moveLeft;
+    public Player player;
+
 
     // Update is called once per frame
     void Update()
@@ -53,11 +59,17 @@ public class Swipes : MonoBehaviour
         Vector2 Distance = endSwipePosition - startSwipePosition;
         if (Distance.x > 0)
         {
-            SidesMove.text = "R";
+           // SidesMove.text = "R";
+           //moveRight.Invoke();
+           player.moveRight();
         }
         else if (Distance.x < 0)
         {
-            SidesMove.text = "L";
+          //  SidesMove.text = "L";
+          //moveLeft.Invoke();
+          player.moveLeft();
         }
+
+
     }
 }
