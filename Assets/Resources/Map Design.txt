@@ -1,0 +1,6 @@
+1 Line - seconds
+2 Line - type of house
+3 Line - line od spawn (1-3)
+
+(5, 1, 2)
+(7, 1, 1)
